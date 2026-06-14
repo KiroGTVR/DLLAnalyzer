@@ -1,120 +1,115 @@
 # DLL Analyzer
 
-🔍 A lightweight Windows utility for educational static analysis of DLL and EXE files.
+🔍 A lightweight Windows utility for static DLL and EXE analysis.
 
-DLL Analyzer helps inspect files by calculating hashes, detecting common modding libraries, searching for suspicious strings, and generating simple risk reports.
-
-> This tool performs static analysis only. It cannot guarantee that a file is safe or malicious.
+DLL Analyzer helps you inspect files by generating hashes, detecting common libraries, searching for suspicious strings, and creating easy-to-read analysis reports.
 
 ---
 
 ## Features
 
-- SHA256 hashing
-- MD5 hashing
-- DLL and EXE support
-- Suspicious string detection
-- Modding library detection
-- Risk scoring system
-- Report generation
-- Save reports as text files
-- Simple and lightweight interface
+- SHA256 Hash Generation
+- MD5 Hash Generation
+- DLL & EXE Support
+- Risk Scoring
+- Suspicious String Detection
+- Common Framework Detection
+- Analysis Report Generation
+- Report Exporting
+- Lightweight & Portable
 
 ---
 
-## Screenshots
+## Screenshot
 
-_Add screenshots here._
+### Main Window
+
+![DLL Analyzer Screenshot](screenshots/ss1.png)
+
+---
+
+## Download
+
+Download the latest version from the **Releases** section.
+
+Included:
+
+- DLLAnalyzer.exe
+
+No installation required.
 
 ---
 
 ## How It Works
 
-DLL Analyzer scans files without executing them.
+DLL Analyzer performs **static analysis**.
+
+The file is never executed.
 
 The analyzer:
 
 - Reads file contents
-- Calculates hashes
-- Searches for known keywords
-- Detects common modding frameworks
-- Generates a basic risk score
-- Produces a human-readable report
+- Generates SHA256 and MD5 hashes
+- Searches for suspicious strings
+- Detects common libraries and frameworks
+- Calculates a risk score
+- Generates a detailed report
 
-Examples of detected libraries:
+---
+
+## Example Detection Categories
+
+### Safe Indicators
 
 - BepInEx
 - HarmonyLib
 - UnityEngine
+- TMPro
+- GorillaLocomotion
 - Photon.Pun
 
-Examples of monitored strings:
+### Suspicious Indicators
 
+- powershell
+- cmd.exe
+- Process.Start
 - WebClient
 - HttpClient
-- Process.Start
-- powershell
-- discord.com/api/webhooks
+- Discord Webhooks
+- SharpMonoInjector
 
 ---
 
-## Installation
+## Risk Levels
 
-### Option 1: Download Release
-
-Download the latest release from the Releases page.
-
-### Option 2: Run From Source
-
-Requirements:
-
-- Python 3.10+
-- Tkinter
-
-Run:
-
-```bash
-python app.py
-```
-
----
-
-## Building
-
-Build a standalone executable using PyInstaller:
-
-```bash
-pyinstaller --clean --onefile --windowed --icon=icon.ico --name DLLAnalyzer app.py
-```
-
-The compiled executable will be located in:
-
-```text
-dist/DLLAnalyzer.exe
-```
+| Score | Verdict |
+|---------|----------|
+| 0-19 | 🟢 Low Risk |
+| 20-49 | 🟡 Moderate Risk |
+| 50-79 | 🟠 High Risk |
+| 80-100 | 🔴 Critical Risk |
 
 ---
 
 ## Example Report
 
 ```text
-============================================================
 DLL ANALYZER REPORT
-============================================================
 
 File: Example.dll
 
-Risk Score: 10/100
+Risk Score: 0/100
 Verdict: LOW RISK
 
 SAFE INDICATORS
-------------------------------
+
 [+] BepInEx
 [+] HarmonyLib
+[+] UnityEngine
 
 SUSPICIOUS FINDINGS
-------------------------------
-[!] HttpClient (+10)
+
+No suspicious strings found.
 ```
 
 ---
@@ -123,30 +118,45 @@ SUSPICIOUS FINDINGS
 
 DLL Analyzer is intended for educational and research purposes.
 
-A low risk score does not guarantee that a file is safe.
+This tool:
 
-A high risk score does not guarantee that a file is malicious.
+- Does not execute analyzed files
+- Does not guarantee that a file is safe
+- Does not replace antivirus software
+- Does not perform behavioral analysis
 
-Always use caution when running software from untrusted sources.
+Always use caution when running files from untrusted sources.
 
 ---
 
 ## Roadmap
 
-### Version 1.1
-- Better risk scoring
-- Additional keyword detection
-- Improved reporting
+### v1.1
 
-### Version 1.2
+- More suspicious string detection
+- Improved risk scoring
+- Better report formatting
+
+### v1.2
+
 - PE metadata analysis
-- File entropy checks
+- Entropy analysis
 - Improved UI
 
-### Version 2.0
+### v2.0
+
 - .NET assembly inspection
-- Import analysis
-- Enhanced report export
+- Assembly reference analysis
+- Advanced reporting
+
+---
+
+## Built With
+
+- Python
+- Tkinter
+- hashlib
+- PyInstaller
 
 ---
 
@@ -156,4 +166,4 @@ MIT License
 
 ---
 
-Made with ❤️ using Python and Tkinter.
+Made by Kiro 😎
